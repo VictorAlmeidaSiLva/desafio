@@ -1,6 +1,13 @@
+const readline = require('readline')
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
+
 function inverterString(str) {
     let stringInvertida = ''
-    
+
     for (let i = str.length - 1; i >= 0; i--) {
         stringInvertida += str[i]
     }
@@ -8,6 +15,9 @@ function inverterString(str) {
     return stringInvertida
 }
 
-const entrada = "Exemplo de string";
+rl.question('Digite uma string para inverter: ', (input) => {
+    const resultado = inverterString(input)
+    console.log(`A string invertida é: ${resultado}`)
 
-console.log(inverterString(entrada))
+    rl.close()
+})
